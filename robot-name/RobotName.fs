@@ -6,11 +6,9 @@ type Robot = {Name: string}
 
 let randomName() = 
     let rand = Random(Guid.NewGuid().GetHashCode())
-    let chars = ['A' .. 'Z']
-    let l1 = chars.[rand.Next(chars.Length)].ToString()
-    let l2 = chars.[rand.Next(chars.Length)].ToString()
+    let c() = char (rand.Next(0x41, 0x5b))
     let d = rand.Next(999)
-    sprintf "%s%s%03d" l1 l2 d
+    sprintf "%c%c%03d" (c()) (c()) d
 
 let mkRobot() = {Name = randomName()}
 
