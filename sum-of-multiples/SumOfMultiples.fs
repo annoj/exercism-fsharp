@@ -1,10 +1,10 @@
 ﻿module SumOfMultiples
 
+let listOfMultiples (upperBound: int) (n: int) =
+    if n = 0 then [0] else [n .. n .. (upperBound - 1)]
+
 let sum (numbers: int list) (upperBound: int): int =
-    let listOfMultiples (n: int) =
-        [for k in [0 .. (upperBound - 1) / n] do yield n * k]
     numbers
-    |> List.filter (fun n -> n > 0)
-    |> List.collect listOfMultiples
+    |> List.collect (listOfMultiples upperBound)
     |> List.distinct
     |> List.sum
