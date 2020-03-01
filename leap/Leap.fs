@@ -1,6 +1,8 @@
 ﻿module Leap
 
+let isDivisible dividend divisor = dividend % divisor = 0
+
 let leapYear (year: int): bool =
-    year % 4 = 0
-    && year % 100 <> 0
-    || year % 400 = 0
+    isDivisible year 4
+    && not (isDivisible year 100)
+    || isDivisible year 400
