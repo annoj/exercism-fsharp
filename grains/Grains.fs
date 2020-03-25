@@ -6,4 +6,4 @@ let square (n: int): Result<uint64,string> =
     | _ -> Error "square must be between 1 and 64"
 
 let total: Result<uint64,string> =
-    Ok 18446744073709551615UL
+    Ok 0xffffffffffffffffUL
