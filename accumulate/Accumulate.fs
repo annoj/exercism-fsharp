@@ -1,7 +1,7 @@
 ﻿module Accumulate
 
 let rec accumulate (func: 'a -> 'b) (input: 'a list): 'b list = 
-    let rec accmlt cont = function
+    let rec _accumulate cont = function
         | [] -> cont []
-        | h :: t -> accmlt (fun acc -> cont (func h :: acc)) t
-    accmlt id input
+        | h :: t -> _accumulate (fun acc -> cont (func h :: acc)) t
+    _accumulate id input
