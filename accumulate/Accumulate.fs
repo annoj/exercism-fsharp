@@ -1,7 +1,9 @@
 ﻿module Accumulate
 
+// Bump: Did not receive feedback since march 27.
+
 let rec accumulate (func: 'a -> 'b) (input: 'a list): 'b list = 
-    let rec _accumulate cont = function
+    let rec accmlt cont = function
         | [] -> cont []
-        | h :: t -> _accumulate (fun acc -> cont (func h :: acc)) t
-    _accumulate id input
+        | h :: t -> accmlt (fun acc -> cont (func h :: acc)) t
+    accmlt id input
